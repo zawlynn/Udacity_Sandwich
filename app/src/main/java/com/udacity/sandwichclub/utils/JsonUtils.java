@@ -7,7 +7,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class JsonUtils {
-
     public static Sandwich parseSandwichJson(String json) {
         Sandwich sandwich=new Sandwich();
         try {

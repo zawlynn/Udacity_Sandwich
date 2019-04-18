@@ -66,14 +66,14 @@ public class DetailActivity extends AppCompatActivity {
         if (sandwich.getAlsoKnownAs() != null) {
             StringBuilder text = new StringBuilder();
             for (String s : sandwich.getAlsoKnownAs()) {
-                text.append(s).append("\t");
+                text.append(s).append("\n");
             }
             also_known_tv.setText(text);
         }
         if (sandwich.getIngredients() != null) {
             StringBuilder text = new StringBuilder();
             for (String s : sandwich.getIngredients()) {
-                text.append(s).append("\t");
+                text.append(s).append("\n");
             }
             ingredients_tv.setText(text);
         }
