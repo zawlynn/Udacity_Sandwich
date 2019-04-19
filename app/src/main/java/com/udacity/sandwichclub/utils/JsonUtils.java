@@ -16,11 +16,12 @@ public class JsonUtils {
     private static final String col_description = "description";
     private static final String col_image = "image";
     private static final String col_ingredients = "ingredients";
+
     public static Sandwich parseSandwichJson(String json) {
         Sandwich sandwich = new Sandwich();
         try {
             JSONObject _json = new JSONObject(json);
-            if(_json.optJSONObject(col_name)!=null) {
+            if (_json.optJSONObject(col_name) != null) {
                 sandwich.setMainName(_json.optJSONObject(col_name).optString(col_main_name, no_data));
                 if (_json.optJSONObject(col_name).optJSONArray(col_also_know) != null) {
                     ArrayList<String> name_list = new ArrayList<>();
@@ -32,7 +33,7 @@ public class JsonUtils {
             }
             sandwich.setPlaceOfOrigin(_json.optString(col_place_of_orgin, no_data));
             sandwich.setDescription(_json.optString(col_description, no_data));
-            sandwich.setImage(_json.optString(col_image,no_data));
+            sandwich.setImage(_json.optString(col_image, no_data));
 
             if (_json.optJSONArray(col_ingredients) != null) {
                 ArrayList<String> ingredients = new ArrayList<>();
