@@ -72,7 +72,7 @@ public class DetailActivity extends AppCompatActivity {
             }
             also_known_tv.setText(text);
         } else {
-            also_known_tv.setText(getResources().getText(R.string.no_data));
+            also_known_tv.setText(getResources().getString(R.string.no_data));
         }
         if (sandwich.getIngredients() != null && sandwich.getIngredients().size() > 0) {
             StringBuilder text = new StringBuilder();
@@ -81,17 +81,17 @@ public class DetailActivity extends AppCompatActivity {
             }
             ingredients_tv.setText(text);
         } else {
-            ingredients_tv.setText(getResources().getText(R.string.no_data));
+            ingredients_tv.setText(getResources().getString(R.string.no_data));
         }
         if (sandwich.getPlaceOfOrigin() != null && sandwich.getPlaceOfOrigin().length() > 0) {
             origin_tv.setText(sandwich.getPlaceOfOrigin());
         } else {
-            origin_tv.setText(getResources().getText(R.string.no_data));
+            origin_tv.setText(getResources().getString(R.string.no_data));
         }
         if (sandwich.getDescription() != null && sandwich.getDescription().length() > 0) {
             description_tv.setText(sandwich.getDescription());
         } else {
-            description_tv.setText(getResources().getText(R.string.no_data));
+            description_tv.setText(getResources().getString(R.string.no_data));
         }
     }
 }
