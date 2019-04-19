@@ -48,6 +48,8 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.mipmap.ic_placeholder)
+                .error(R.mipmap.ic_error)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
@@ -63,22 +65,33 @@ public class DetailActivity extends AppCompatActivity {
         TextView also_known_tv = findViewById(R.id.also_known_tv);
         TextView description_tv = findViewById(R.id.description_tv);
         TextView ingredients_tv = findViewById(R.id.ingredients_tv);
-        if (sandwich.getAlsoKnownAs() != null) {
+        if (sandwich.getAlsoKnownAs() != null && sandwich.getAlsoKnownAs().size() > 0) {
             StringBuilder text = new StringBuilder();
             for (String s : sandwich.getAlsoKnownAs()) {
                 text.append(s).append("\n");
             }
             also_known_tv.setText(text);
+        } else {
+            also_known_tv.setText(getResources().getText(R.string.no_data));
         }
-        if (sandwich.getIngredients() != null) {
+        if (sandwich.getIngredients() != null && sandwich.getIngredients().size() > 0) {
             StringBuilder text = new StringBuilder();
             for (String s : sandwich.getIngredients()) {
                 text.append(s).append("\n");
             }
             ingredients_tv.setText(text);
+        } else {
+            ingredients_tv.setText(getResources().getText(R.string.no_data));
         }
-
-        origin_tv.setText(sandwich.getPlaceOfOrigin());
-        description_tv.setText(sandwich.getDescription());
+        if (sandwich.getPlaceOfOrigin() != null && sandwich.getPlaceOfOrigin().length() > 0) {
+            origin_tv.setText(sandwich.getPlaceOfOrigin());
+        } else {
+            origin_tv.setText(getResources().getText(R.string.no_data));
+        }
+        if (sandwich.getDescription() != null && sandwich.getDescription().length() > 0) {
+            description_tv.setText(sandwich.getDescription());
+        } else {
+            description_tv.setText(getResources().getText(R.string.no_data));
+        }
     }
 }
